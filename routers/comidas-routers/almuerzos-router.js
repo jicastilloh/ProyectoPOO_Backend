@@ -56,6 +56,8 @@ router.put('/:id', (req, res) => {
         res.send(error);
         res.end();
     } )
+
+    console.log('Actualizando almuerzo');
 });
 
 // Eliminando un almuerzo
