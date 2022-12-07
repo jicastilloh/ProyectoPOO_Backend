@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const desayuno = require('../../models/comidas-models/desayunos');
+const almuerzo = require('../../models/comidas-models/almuerzos');
 
-// Obteniendo todos los desayunos
+// Obteniendo todos los almuerzos
 router.get('/', (req, res) => {
-    desayuno.find()
+    almuerzo.find()
     .then( (result) => {
         res.send(result);
         res.end();
@@ -14,17 +14,17 @@ router.get('/', (req, res) => {
         res.end();
     } )
 
-    console.log('Mostrando todos los desayunos');
+    console.log('Mostrando todos los almuerzos');
 });
 
-// Crear un desayuno
+// Crear un almuerzo
 router.post('/', (req, res) => {
-    let newDesayuno = new desayuno({
+    let newAlmuerzo = new almuerzo({
         nombre: req.body.nombre,
         precio: req.body.precio
     });
 
-    newDesayuno.save()
+    newAlmuerzo.save()
     .then( (result) => {
         res.send(result);
         res.end();
@@ -34,13 +34,13 @@ router.post('/', (req, res) => {
         res.end();
     } )
 
-    console.log('Insertando nuevo desayuno');
+    console.log('Insertando nuevo almuerzo');
 
 });
 
-// Actualizar desayuno
+// Actualizar almuerzo
 router.put('/:id', (req, res) => {
-    desayuno.updateOne(
+    almuerzo.updateOne(
         {
             _id: req.params.id
         },
@@ -58,9 +58,9 @@ router.put('/:id', (req, res) => {
     } )
 });
 
-// Eliminando un desayuno
+// Eliminando un almuerzo
 router.delete('/:id', (req, res) => {
-    desayuno.deleteOne({ _id: req.params.id })
+    almuerzo.deleteOne({ _id: req.params.id })
     .then( (result) => {
         res.send(result);
         res.end();
