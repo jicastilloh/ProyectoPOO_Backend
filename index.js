@@ -6,8 +6,10 @@ const repartidorRouter = require('./routers/repartidores-router');
 const administradorRouter = require('./routers/administradores-router');
 
 // comidas
-const desayunoRouter = require('./routers/comidas-routers/desayunos-router')
+const desayunoRouter = require('./routers/comidas-routers/desayunos-router');
 const almuerzoRouter = require('./routers/comidas-routers/almuerzos-router');
+const cenaRouter = require('./routers/comidas-routers/cenas-router');
+const bebidaRouter = require('./routers/comidas-routers/bebidas-router');
 
 const app = express();
 
@@ -23,6 +25,8 @@ app.use('/administradors', administradorRouter);
 // Usando rutas de comidas
 app.use('/desayunos', desayunoRouter);
 app.use('/almuerzos', almuerzoRouter);
+app.use('/cenas', cenaRouter);
+app.use('/bebidas', bebidaRouter);
 
 app.get('/', (req, res) => {
     res.send('Bienvenido');
